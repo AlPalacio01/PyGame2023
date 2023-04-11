@@ -25,9 +25,21 @@ options_button = button.Button(960, 625, options_image, 2)
 exit_button = button.Button(960, 775, exit_image, 2)
 
 
+
+font1 = pygame.font.SysFont('kenvector_future.ttf', 500)
+font2 = pygame.font.SysFont('kenvector_future.ttf', 200)
+start_text = font1.render('Start', True, black)
+options_text = font2.render('Options', True, black)
+exit_text = font2.render('Exit', True, black)
+
+class FONT():
+    def __init__(self, x, y):
+        
+
 runing = True
 while runing:
     screen.blit(bg,(0,0))
+
 
     if start_button.draw(screen) == True:
         print("Start")
@@ -36,16 +48,17 @@ while runing:
     if exit_button.draw(screen) == True:
         runing = False
         #print("Exit")
+    
+    screen.blit(start_text, (0, 0))
+    screen.blit(options_text, (0, 0))
+    screen.blit(exit_text, (0, 0))
+
 
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()      
     pygame.display.update()
 pygame.quit()
-
-
-
-
 
 
 
